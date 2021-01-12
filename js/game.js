@@ -80,7 +80,7 @@ class Game{
                     player.update();
                 }
             
-                 if (frameCount % 20 === 0) {
+                 if (frameCount % 80 === 0) {
                      fruits = createSprite(random(100, 1000), 0, 100, 100);
                      fruits.velocityY = 6;
                      var rand = Math.round(random(1,5));
@@ -103,14 +103,18 @@ class Game{
                  if (player.index !== null) 
                  { for (var i = 0; i < fruitGroup.length; i++) 
                     { if (fruitGroup.get(i).isTouching(players)) 
-                        { fruitGroup.get(i).destroy(); 
+                        { fruitGroup.get(i).destroyEach(); 
                         player.score =player.score+1; player.update(); } 
                     } 
                 }
                 
 
          
-         
+        //   if(player.score>20){
+        //       gameState=2;
+        //       player.rank=player.rank+1;
+        //      Player.updatebasketsAtEnd(player.rank);
+        //   }
         
          
 
@@ -118,5 +122,6 @@ class Game{
 
     end(){
        console.log("Game Ended");
+       //console.log(player.rank)
     }
 }
